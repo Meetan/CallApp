@@ -11,30 +11,68 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true">
+        android:layout_height="fill_parent">
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="ぜんぶ"
-            android:id="@+id/button"
-            android:layout_gravity="center_horizontal"
-            android:onClick="all"/>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_weight="1">
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="New Button"
-            android:id="@+id/button2"
-            android:layout_gravity="center_horizontal"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="よびだしくん　β"
+                android:id="@+id/textView"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="2"
+                android:textSize="50dp"/>
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="New Button"
-            android:id="@+id/button3"
-            android:layout_gravity="center_horizontal"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:text="ぜんぶ見る"
+                android:id="@+id/button"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:onClick="all"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="2">
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="ベル系"
+                android:id="@+id/button2"
+                android:layout_weight="1"
+                android:layout_margin="10dp"/>
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="声系"
+                android:id="@+id/button3"
+                android:layout_weight="1"
+                android:layout_margin="10dp"/>
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="イライラ系"
+                android:id="@+id/button4"
+                android:layout_weight="1"
+                android:layout_margin="10dp"/>
+        </LinearLayout>
+
     </LinearLayout>
+
 </RelativeLayout>

@@ -1,6 +1,5 @@
 package com.example.miyuu.callapp;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -17,8 +16,8 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public void all(View view) {
-        Intent intent = new Intent(this, Activity.class);
+    public void all(View v) {
+        Intent intent = new Intent(this, AllActivity.class);
         startActivity(intent);
 
     }
