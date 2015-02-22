@@ -1,18 +1,55 @@
 package com.example.miyuu.callapp;
 
-import android.support.v7.app.ActionBarActivity;
+import android.content.Context;
+import android.media.AudioManager;
+import android.media.SoundPool;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 
 public class AllActivity extends ActionBarActivity {
+
+    private SoundPool soundPool;
+
+    private int soundID;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all);
+        //音楽再生用の音量調節で音量決められる
+        setVolumeControlStream(AudioManager.STREAM_MUSIC);
+
+
     }
+
+    @Override
+    protected void onResume(){
+        super.onResume();
+
+        soundPool = new SoundPool(1, AudioManager.STREAM_MUSIC, 0);
+        //soundPool = new SoundPool(読み込む最大の数, なんのタイプのMUSICか, サンプリングレートのクオリティ)
+        //なんのタイプの～は普通はSTREAM_MUSIC
+        //サンプリングレートの～はデフォルトは０
+
+        soundID = soundPool.load(getApplicationContext(), R.raw.music, 1);
+    }
+
+    public void play5 (View v) {
+        AudioManager audio = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
+        //音量の設定
+        int musicVol = audio.getStreamVolume(AudioManager.STREAM_MUSIC);
+
+        soundPool.play(soundID, (float)musicVol,(float)musicVol, 0, 0, 1.0F);
+
+    }
+
+
 
 
     @Override
@@ -36,4 +73,7 @@ public class AllActivity extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+
+
 }

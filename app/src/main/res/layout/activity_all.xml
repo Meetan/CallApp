@@ -28,7 +28,8 @@
              android:layout_width="wrap_content"
              android:layout_height="fill_parent"
              android:text="New Button"
-             android:id="@+id/button5"/>
+             android:id="@+id/button5"
+             android:onClick="play5"/>
 
          <Button
              android:layout_width="wrap_content"
