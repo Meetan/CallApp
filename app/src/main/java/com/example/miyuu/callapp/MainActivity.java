@@ -19,7 +19,6 @@ public class MainActivity extends ActionBarActivity {
     public void all(View v) {
         Intent intent = new Intent(this, AllActivity.class);
         startActivity(intent);
-
     }
 
 
