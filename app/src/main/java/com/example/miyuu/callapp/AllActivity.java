@@ -1,6 +1,5 @@
 package com.example.miyuu.callapp;
 
-import android.content.Context;
 import android.media.AudioManager;
 import android.media.SoundPool;
 import android.os.Bundle;
@@ -32,7 +31,7 @@ public class AllActivity extends ActionBarActivity {
     protected void onResume(){
         super.onResume();
 
-        soundPool = new SoundPool(1, AudioManager.STREAM_MUSIC, 0);
+        soundPool = new SoundPool(5,AudioManager.STREAM_MUSIC, 0);
         //soundPool = new SoundPool(読み込む最大の数, なんのタイプのMUSICか, サンプリングレートのクオリティ)
         //なんのタイプの～は普通はSTREAM_MUSIC
         //サンプリングレートの～はデフォルトは０
@@ -46,16 +45,12 @@ public class AllActivity extends ActionBarActivity {
 
             }
         });
-        soundPool.load(getApplicationContext(), R.raw.music, 0);
+
+        soundID = soundPool.load(getApplicationContext(), R.raw.chime, 0);
     }
 
     public void play5 (View v) {
-        AudioManager audio = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
-        //音量の設定
-        int musicVol = audio.getStreamVolume(AudioManager.STREAM_MUSIC);
-
-        soundPool.play(soundID, (float)musicVol,(float)musicVol, 0, 0, 1.0F);
-
+       soundID =  soundPool.play(soundID, 1.0F,1.0F, 0, 0, 1.0F);
     }
 
 
