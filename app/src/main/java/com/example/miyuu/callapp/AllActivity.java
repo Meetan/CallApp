@@ -5,6 +5,7 @@ import android.media.AudioManager;
 import android.media.SoundPool;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -14,8 +15,7 @@ public class AllActivity extends ActionBarActivity {
 
     private SoundPool soundPool;
 
-    private int soundID;
-
+    int soundID;
 
 
     @Override
@@ -37,7 +37,16 @@ public class AllActivity extends ActionBarActivity {
         //なんのタイプの～は普通はSTREAM_MUSIC
         //サンプリングレートの～はデフォルトは０
 
-        soundID = soundPool.load(getApplicationContext(), R.raw.music, 1);
+        soundPool.setOnLoadCompleteListener(new SoundPool.OnLoadCompleteListener() {
+            @Override
+            public void onLoadComplete(SoundPool soundPool, int sampleId, int status) {
+                if (status == 0) {
+                    Log.d("", "ロードできたよ");
+                }
+
+            }
+        });
+        soundPool.load(getApplicationContext(), R.raw.music, 0);
     }
 
     public void play5 (View v) {
